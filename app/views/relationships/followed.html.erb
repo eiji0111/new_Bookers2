@@ -1,0 +1,27 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col'>
+      <h2>Followed Users</h2>
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @followeds.each do |followed| %>
+            <tr>
+              <td><%= attachment_image_tag(followed, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
+              <td><%= followed.name %></td>
+              <td>フォロー数：<%= followed.follower.count %></td>
+              <td>フォロワー数：<%= followed.followed.count %></td>
+              <td><%= link_to 'Show', user_path(followed) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
