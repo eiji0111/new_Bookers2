@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'favorites/destroy'
   root 'homes#top'
   get 'home/about' => 'homes#about'
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+  }
   resources :users,only: [:show,:index,:edit,:update]
   resources :books do
     resource :book_comments, only: [:create, :destroy]
