@@ -18,8 +18,8 @@ set :environment, :development
 #   rake "some:great:rake:task"
 # end
 #
-# every 1.days, at: '9:00 am' do
-every 1.minutes do
+every 1.days, at: '9:00 am' do
+# every 1.minutes do
 
 # Rails内のメソッド実行
   runner "Batch::SendEmail.send"
