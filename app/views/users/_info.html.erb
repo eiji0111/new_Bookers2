@@ -26,7 +26,11 @@
     <% end %>
   <% end %>
 </div>
-
+<div class="col mt-3">
+  <% if current_user != user %>
+    <%= link_to 'チャットする', chat_path(user.id),class: "btn btn-outline-success btn-sm far fa-comments" %>
+  <% end %>
+</div>
 <div class='row'>
   <% if user == current_user %>
   <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
