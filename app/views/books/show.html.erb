@@ -32,6 +32,8 @@
           <%= render partial: 'book_comments/index', locals: {book_comments: @book_comments} %>
         </ul>
       </div>
+      <div id="error_explanation">
+      </div>
       <% if user_signed_in? %>
         <div class="comment-create">
           <%= render partial: 'book_comments/form', locals: {book: @book, book_comment: @book_comment} %>
