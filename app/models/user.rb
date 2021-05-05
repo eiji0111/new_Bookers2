@@ -1,9 +1,10 @@
 class User < ApplicationRecord
-  include JpPrefecture
-  jp_prefecture :prefecture_code
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  attachment :profile_image, destroy: false
+  validates :name, length: { maximum: 20, minimum: 2 }, uniqueness: true
+  validates :introduction, length: { maximum: 50 }
 
   has_many :books
   has_many :favorites, dependent: :destroy
@@ -21,10 +22,6 @@ class User < ApplicationRecord
   has_many :chats
   has_many :rooms, through: :user_rooms
 
-  attachment :profile_image, destroy: false
-
-  validates :name, length: { maximum: 20, minimum: 2 }, uniqueness: true
-  validates :introduction, length: { maximum: 50 }
 
   # ユーザーをフォローする
   def follow(user_id)
@@ -54,6 +51,9 @@ class User < ApplicationRecord
       @user = User.all
     end
   end
+
+  include JpPrefecture
+  jp_prefecture :prefecture_code
 
   def prefecture_name
     JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)

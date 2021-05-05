@@ -6,8 +6,8 @@ class DailyMailer < ApplicationMailer
   #   en.welcome_mailer.send_when_signup.subject
   #
   def send_mail
-    @user = User.find(1)
-    mail to: @user.email, subject: 'Registration Complete! Thanks for Joining!'
+    @user = User.pluck(:email)
+    mail subject: 'テストメール', to: @user
   end
 end
 
