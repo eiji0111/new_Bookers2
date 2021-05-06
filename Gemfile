@@ -66,3 +66,4 @@ gem 'jp_prefecture'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'whenever', require: false
 gem 'dotenv-rails'
+gem 'pry-byebug'

@@ -34,5 +34,6 @@
 <div class='row'>
   <% if user == current_user %>
   <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+  <%= link_to '退会する', confirm_unsubscribe_path(user.name),class: "btn btn-outline-secondary btn-block" %>
   <% end %>
 </div>

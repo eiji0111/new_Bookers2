@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     end
   end
 
+
   def create
     @user = User.new(user_params)
 
@@ -37,6 +38,18 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def unsubscribe
+    @user = User.find_by(name: params[:name])
+  end
+
+  def withdraw
+    @user = User.find_by(name: params[:name])
+    @user.update(is_valid: false)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
   end
 
   private

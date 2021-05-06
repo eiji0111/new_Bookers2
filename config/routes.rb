@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'homes#top'
   get 'home/about' => 'homes#about'
   devise_for :users, controllers: {
-    registrations: "users/registrations",
+    registrations: "users/registrations"
   }
   resources :users, only: [:index, :show, :edit, :update]
   resources :books do
@@ -22,4 +22,8 @@ Rails.application.routes.draw do
 
   get 'chat/:id' => 'chats#show', as: 'chat'
   resources :chats, only: [:create]
+
+  get 'unsubscribe/:name' => 'users#unsubscribe', as: 'confirm_unsubscribe'
+  patch ':id/withdraw/:name' => 'users#withdraw', as: 'withdraw_user'
+  put 'withdraw/:name' => 'users#withdraw'
 end
