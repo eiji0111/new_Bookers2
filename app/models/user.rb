@@ -67,3 +67,4 @@ class User < ApplicationRecord
     super && (self.is_valid == true)
   end
 end
+
