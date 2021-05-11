@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    models:
+      book: ブック
+      user:
+    attributes:
+      book:
+        title: タイトル
+        body: 内容
+      user:
+        name: 氏名

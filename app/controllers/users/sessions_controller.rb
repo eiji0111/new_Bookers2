@@ -1,6 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
   before_action :reject_inactive_user, only: [:create]
-　
+
   def reject_inactive_user
     @user = User.find_by(name: params[:user][:name])
     if @user
