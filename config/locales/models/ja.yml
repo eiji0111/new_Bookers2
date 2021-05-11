@@ -3,9 +3,12 @@ ja:
     models:
       book: ブック
       user:
+      book_comment:
     attributes:
       book:
         title: タイトル
         body: 内容
       user:
         name: 氏名
+      book_comment:
+        comment: コメント
