@@ -65,8 +65,11 @@ gem 'jquery-rails'
 gem 'jp_prefecture'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'whenever', require: false
-gem 'dotenv-rails'
 gem 'pry-byebug'
 gem 'rails-i18n'
 gem 'kaminari', '~> 0.17.0'
 gem 'kaminari-bootstrap', '~> 3.0.1'
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
