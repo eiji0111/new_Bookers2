@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
 
-  PER = 5
-
   def index
-    @users = User.page(params[:page]).per(PER)
+    @users = User.page(params[:page]).per(5)
     @book = Book.new
   end
 
@@ -32,7 +30,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        DailyMailer.complete_mail(@user).deliver_now # (1)
+        # DailyMailer.complete_mail(@user).deliver_now # (1)
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
