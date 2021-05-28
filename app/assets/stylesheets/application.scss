@@ -18,6 +18,7 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+
 .fa, .fas {
   font-family: 'Font Awesome 5 Free';
   font-weight: 600;
@@ -36,4 +37,9 @@ div {
   &.field, &.actions {
     margin-bottom: 10px;
   }
+}
+
+#map {
+  height: 300px;
+  width: 300px;
 }
